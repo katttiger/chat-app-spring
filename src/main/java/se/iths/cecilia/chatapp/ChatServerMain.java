@@ -1,4 +1,4 @@
-package se.sprinto.hakan.chatapp;
+package se.iths.cecilia.chatapp;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

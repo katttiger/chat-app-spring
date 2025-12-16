@@ -1,9 +1,9 @@
-package se.sprinto.hakan.chatapp.repository;
+package se.iths.cecilia.chatapp.repository;
 
 
 
-import se.sprinto.hakan.chatapp.model.Message;
-import se.sprinto.hakan.chatapp.model.User;
+import se.iths.cecilia.chatapp.model.Message;
+
 import java.util.List;
 
 

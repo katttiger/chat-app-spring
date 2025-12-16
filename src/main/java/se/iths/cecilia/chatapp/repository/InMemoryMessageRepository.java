@@ -1,7 +1,7 @@
-package se.sprinto.hakan.chatapp.repository;
+package se.iths.cecilia.chatapp.repository;
 
 import org.springframework.stereotype.Repository;
-import se.sprinto.hakan.chatapp.model.Message;
+import se.iths.cecilia.chatapp.model.Message;
 
 import java.util.ArrayList;
 import java.util.List;

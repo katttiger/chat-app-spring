@@ -1,4 +1,4 @@
-package se.sprinto.hakan.chatapp.model;
+package se.iths.cecilia.chatapp.model;
 
 import java.time.LocalDateTime;
 

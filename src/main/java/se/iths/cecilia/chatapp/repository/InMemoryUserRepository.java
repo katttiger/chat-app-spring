@@ -1,11 +1,10 @@
-package se.sprinto.hakan.chatapp.repository;
+package se.iths.cecilia.chatapp.repository;
 
 import org.springframework.stereotype.Repository;
-import se.sprinto.hakan.chatapp.model.User;
+import se.iths.cecilia.chatapp.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public class InMemoryUserRepository implements UserRepository {

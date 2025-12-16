@@ -1,9 +1,9 @@
-package se.sprinto.hakan.chatapp;
+package se.iths.cecilia.chatapp;
 
-import se.sprinto.hakan.chatapp.model.Message;
-import se.sprinto.hakan.chatapp.model.User;
-import se.sprinto.hakan.chatapp.service.MessageService;
-import se.sprinto.hakan.chatapp.service.UserService;
+import se.iths.cecilia.chatapp.model.Message;
+import se.iths.cecilia.chatapp.model.User;
+import se.iths.cecilia.chatapp.service.MessageService;
+import se.iths.cecilia.chatapp.service.UserService;
 
 import java.io.BufferedReader;
 import java.io.IOException;

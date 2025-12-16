@@ -1,9 +1,8 @@
-package se.sprinto.hakan.chatapp.repository;
+package se.iths.cecilia.chatapp.repository;
 
 
-import se.sprinto.hakan.chatapp.model.User;
+import se.iths.cecilia.chatapp.model.User;
 import java.util.List;
-import java.util.Optional;
 
 public interface UserRepository {
     User save(User user);
