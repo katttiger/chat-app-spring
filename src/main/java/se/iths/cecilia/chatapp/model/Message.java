@@ -1,13 +1,29 @@
 package se.iths.cecilia.chatapp.model;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "messages")
 public class Message {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private User user;
+
+    @Column(name = "text", nullable = false)
     private String text;
+
+    @Column(name = "timestamp", nullable = false)
     private LocalDateTime timestamp;
+
+    @ManyToOne
+    @JoinColumn(
+            name = "user_id",
+            nullable = false)
+    private User user;
+
 
     public Message(User user, String text, LocalDateTime timestamp) {
         this.user = user;
@@ -15,7 +31,7 @@ public class Message {
         this.timestamp = timestamp;
     }
 
-    public Message(){
+    public Message() {
 
     }
 

@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class ChatServerMain implements CommandLineRunner {
+
     private final ChatServer chatServer;
 
     public ChatServerMain(ChatServer chatServer) {
@@ -14,7 +15,6 @@ public class ChatServerMain implements CommandLineRunner {
 
     public static void main(String[] args) {
         SpringApplication.run(ChatServerMain.class, args);
-
     }
 
     @Override

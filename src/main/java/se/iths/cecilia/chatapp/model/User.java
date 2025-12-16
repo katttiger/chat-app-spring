@@ -1,12 +1,29 @@
 package se.iths.cecilia.chatapp.model;
 
+import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "users")
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
-    private String username;
+
+    @Column(name = "user_name", nullable = false)
+    private String userName;
+
+    @Column(name = "password", nullable = false)
     private String password;
+
+    @OneToMany
+            (mappedBy = "user",
+                    cascade = CascadeType.REMOVE,
+                    fetch = FetchType.LAZY)
     private List<Message> messages = new ArrayList<>();
 
     public User() {
@@ -14,12 +31,12 @@ public class User {
 
     public User(Long id, String username, String password) {
         this.id = id;
-        this.username = username;
+        this.userName = username;
         this.password = password;
     }
 
     public User(String username, String password) {
-        this.username = username;
+        this.userName = username;
         this.password = password;
     }
 
@@ -32,11 +49,11 @@ public class User {
     }
 
     public String getUsername() {
-        return username;
+        return userName;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.userName = username;
     }
 
     public String getPassword() {

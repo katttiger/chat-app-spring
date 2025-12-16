@@ -40,25 +40,25 @@ public class ClientHandler implements Runnable {
     @Override
     public void run() {
         try (
-                BufferedReader in = new BufferedReader(
+                BufferedReader inputReader = new BufferedReader(
                         new InputStreamReader(socket.getInputStream()));
                 PrintWriter writer = new PrintWriter(socket.getOutputStream(), true)
         ) {
-
             this.out = writer;
 
             writer.println("Välkommen! Har du redan ett konto? (ja/nej)");
-            String answer = in.readLine();
+            String answer = inputReader.readLine();
             boolean existingUser = false;
 
             if ("ja".equalsIgnoreCase(answer)) {
                 writer.println("Ange användarnamn:");
-                String username = in.readLine();
+                String username = inputReader.readLine();
 
                 writer.println("Ange lösenord:");
-                String password = in.readLine();
+                String password = inputReader.readLine();
 
                 user = userService.login(username, password);
+                writer.println("I have returned.");
 
                 if (user == null) {
                     writer.println("Fel användarnamn eller lösenord.");
@@ -69,10 +69,10 @@ public class ClientHandler implements Runnable {
 
             } else {
                 writer.println("Skapa nytt konto. Ange användarnamn:");
-                String username = in.readLine();
+                String username = inputReader.readLine();
 
                 writer.println("Ange lösenord:");
-                String password = in.readLine();
+                String password = inputReader.readLine();
 
                 user = userService.register(new User(username, password));
 
@@ -96,7 +96,7 @@ public class ClientHandler implements Runnable {
             writer.println("/quit avslutar sessionen.");
 
             String msg;
-            while ((msg = in.readLine()) != null) {
+            while ((msg = inputReader.readLine()) != null) {
 
                 if (msg.equalsIgnoreCase("/quit")) {
                     break;
@@ -123,7 +123,8 @@ public class ClientHandler implements Runnable {
             server.removeClient(this);
             try {
                 socket.close();
-            } catch (IOException ignored) {}
+            } catch (IOException ignored) {
+            }
         }
     }
 
