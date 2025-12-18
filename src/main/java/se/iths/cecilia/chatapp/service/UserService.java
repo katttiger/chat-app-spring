@@ -16,7 +16,6 @@ public class UserService {
     }
 
     public User login(String username, String password) {
-        System.out.println("Hit login");
         return repo.findByUserNameAndPassword(username, password);
     }
 
