@@ -80,7 +80,7 @@ class MessageServiceTest {
 
     @Test
     @Description("Method findByUserId is called when retrieving messages.")
-    void getMethodIsCalledWhenRetrievingMessage() {
+    void methodsFindUserByIdIsCalledWhenRetrievingMessages() {
         messageServiceMock.getMessages(1L);
         Mockito.verify(messageRepository).findByUserId(1L);
     }

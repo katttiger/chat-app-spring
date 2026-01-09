@@ -33,8 +33,8 @@ class UserServiceTest {
 
     @Test
     @DisplayName("Login succeeds. User exists in the database")
-    void LoginFindAnExistingUser() {
-        Mockito.when(userRepository.findByUserNameAndPassword(mockUser.getUsername(), mockUser.getPassword())).thenReturn(mockUser);
+    void loginFindsAnExistingUser() {
+        Mockito.when(userService.login(mockUser.getUsername(), mockUser.getPassword())).thenReturn(mockUser);
         User result = userService.login(mockUser.getUsername(), mockUser.getPassword());
         Assertions.assertEquals(mockUser, result);
     }
@@ -49,10 +49,10 @@ class UserServiceTest {
     @Test
     @DisplayName("Login returns null as user entered does not exist")
     void userFailsDueToUserNotExisting() {
-        Mockito.when(userRepository.findByUserNameAndPassword("faux_name", "faux_password"))
+        Mockito.when(userService.login("faux_name", "faux_password"))
                 .thenReturn(null);
 
-        User result = userRepository.findByUserNameAndPassword("faux_name", "faux_password");
+        User result = userService.login("faux_name", "faux_password");
 
         Assertions.assertNull(result);
 
